@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import NotFound from "./pages/Error";
+import License from "./components/License";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <License />
     </Router> 
     </>
   )

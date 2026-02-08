@@ -9,10 +9,17 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: var(--font-kanit);
+  @apply antialiased; /* Optional: makes fonts look smoother */
+}
+
+html { scroll-behavior: smooth;}
+
 @theme {
   --font-kanit: "Kanit", sans-serif;
-  --color-Primary: #1A3263;
-  --color-Secondary: #FAB95B;
+  --color-Primary: #F4B342;
+  --color-Secondary: #1A3263;
   --color-Darker-Secondary: #f8a42a;
   --color-White: #E8E2DB;
   --color-Black: #313647;
@@ -45,5 +52,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-Darker-Secondary);
+  background: var(--color-Black);
 }

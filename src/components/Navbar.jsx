@@ -11,19 +11,20 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full">
-      <div className="bg-linear-to-b from-Primary to-transparent flex items-center justify-between px-60 z-100">
+    <nav className="fixed top-0 left-0 w-full z-60">
+      
+      <div className=" bg-Secondary flex items-center justify-between px-40">
       {/* Logo */}
       <img
-        src="/img/Logo.jpg"
+        src="/img/TestLogo.png"
         alt="Logo"
-        className="w-24 cursor-pointer"
+        className="w-16 cursor-pointer py-2"
       />
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-8">
         {menuItems.map((item) => (
-          <li key={item.name} className="font-bold font-kanit cursor-pointer text-White hover:bg-Secondary hover:text-Primary px-4 py-2 rounded-full transition">
+          <li key={item.name} className="font-bold text-xl cursor-pointer text-White hover:bg-Darker-Secondary hover:text-Secondary px-4 py-2 rounded-full transition">
             {item.name}
           </li>
         ))}
