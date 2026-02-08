@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Kanit";
+  src: url("../src/assets/fonts/Kanit-Regular.ttf") format("truetype");
+}
+
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+@theme {
+  --font-kanit: "Kanit", sans-serif;
+  --color-Primary: #1A3263;
+  --color-Secondary: #FAB95B;
+  --color-Darker-Secondary: #f8a42a;
+  --color-White: #E8E2DB;
+  --color-Black: #313647;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+@media screen and (orientation: landscape) and (max-height: 50rem) and (max-width: 64rem) {
+  .hiddenLandscapePhone {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-White);
+  z-index: 10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-Secondary);
+  z-index: 10;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-Darker-Secondary);
+}
