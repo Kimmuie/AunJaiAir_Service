@@ -19,9 +19,13 @@ html { scroll-behavior: smooth;}
 @theme {
   --font-kanit: "Kanit", sans-serif;
   --color-Primary: #F4B342;
+  --color-Darker-Primary-1: #dba13b;
+  --color-Darker-Primary-2: #c38f34;
   --color-Secondary: #1A3263;
-  --color-Darker-Secondary: #f8a42a;
+  --color-Darker-Secondary-1: #172d59;
+  --color-Darker-Secondary-2: #14284f;
   --color-White: #E8E2DB;
+  --color-Darker-White: #d0cbc5;
   --color-Black: #313647;
 }
 
@@ -53,4 +57,8 @@ html { scroll-behavior: smooth;}
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-Black);
+}
+
+.button-74 {
+  box-shadow: #ffffff 4px 4px 0 0;
 }

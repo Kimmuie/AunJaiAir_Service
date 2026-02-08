@@ -63,7 +63,7 @@ const PreviewSlide = () => {
   return (
     <div className="relative w-full mt-15">
       {/* Slider Container */}
-      <div className="relative w-full h-96 overflow-hidden rounded-lg flex justify-center items-center gap-4 px-8">
+      <div className="relative w-full h-80 overflow-hidden rounded-lg flex justify-center items-center gap-4 px-8">
 
         {/* Previous Button */}
         <button
@@ -152,7 +152,7 @@ const PreviewSlide = () => {
       </div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center gap-2 mt-20">
+      <div className="flex justify-center gap-2 mt-10">
         {imageLeftSrc.map((_, index) => (
           <button
             key={index}

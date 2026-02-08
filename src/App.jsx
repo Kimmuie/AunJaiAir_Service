@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, useParams } from "react-router-dom";
 import { useState } from 'react'
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
+import MainPage from './pages/MainPage';
 import NotFound from "./pages/Error";
 import License from "./components/License";
 
@@ -12,8 +12,8 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/mainpage" element={<MainPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <License />
