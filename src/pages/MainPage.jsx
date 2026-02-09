@@ -20,14 +20,14 @@ const MainPage = () => {
 
   return (
     <>
-    <section id="home" className="w-full h-full flex flex-col justify-between pt-20 pb-10 items-center">
+    <section id="home" className="w-full h-full flex flex-col justify-between pt-30 pb-5 gap-2 items-center">
         <PreviewSlide />
         <div className="-z-10">
             <img src="/img/img1.jpg" className="absolute inset-0 w-full h-full object-cover opacity-60" />
             <div className="absolute inset-0 bg-gradient-to-r from-Primary via-Primary/90 to-transparent" />
         </div>
         <a href="#service">
-            <button className="mt-10 text-Secondary text-4xl cursor-pointer border-4 border-transparent hover:border-Secondary rounded-full px-2 py-1 transition flex justify-center items-center">
+            <button className="text-Secondary text-4xl cursor-pointer border-4 border-transparent hover:border-Secondary rounded-full px-2 py-1 transition flex justify-center items-center">
                 ⮟
             </button>
         </a>
@@ -35,7 +35,7 @@ const MainPage = () => {
     <Seperator />
     <section id="service" className="bg-White w-full h-full flex flex-col justify-start items-center py-25 gap-6">
         <StyledHeader title="รูปแบบการล้าง"/>
-       <div className="max-w-6xl gap-6 grid grid-cols-2 md:grid-cols-4">
+       <div className="max-w-6xl gap-6 grid grid-cols-2 xl:grid-cols-4">
           {serviceItems.map((item) => (
             <a  key={item.name} href={`#${item.path}`}>
                 <div className="hover:translate-y-4 transition flex flex-col justify-center items-center bg-Primary rounded-2xl w-40 md:w-60 border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)]">
@@ -48,8 +48,9 @@ const MainPage = () => {
             </a>
           ))}
         </div> 
-        <StyledHeader title="การประเมินราคา"/>
-            <table className="w-5xl bg-White rounded-2xl overflow-hidden border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)] ">
+        <StyledHeader title="การประเมินราคาเริ่มต้น"/>
+        <div className="w-full overflow-x-auto px-3 flex justify-center items-center">
+            <table className="w-full sm:w-2xl xl:w-5xl bg-White rounded-2xl overflow-hidden border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)] ">
                 <thead>
                 <tr className="bg-Primary text-Secondary">
                     <th className="py-4 px-6 border-b-4 border-Darker-Secondary-1 text-left">รุ่น/ขนาด (BTU)</th>
@@ -74,20 +75,21 @@ const MainPage = () => {
                 ))}
                 </tbody>
             </table>
+        </div>
     </section>
     <Seperator />
-    <section id="about-us" className="bg-White w-full h-full flex flex-col justify-start items-center py-25">
-        <div className="flex flex-row justify-center items-center gap-10">
-            <img src="/img/img1.jpg" alt="Logo" className="w-100 rounded-lg border-4 border-White shadow-[6px_6px_0_0_theme(colors.Primary)]"/>
-            <div className="w-md">
+    <section id="about-us" className="bg-White w-full h-full flex flex-col justify-start items-center py-25 gap-4">
+        <div className="w-full flex flex-col sm:flex-row justify-center items-center gap-10 px-0 sm:px-10">
+            <img src="/img/img1.jpg" alt="Logo" className="w-xs sm:w-100 rounded-lg border-4 border-White shadow-[6px_6px_0_0_theme(colors.Primary)]"/>
+            <div className="w-full sm:w-md px-20 sm:px-0">
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">อุ่นใจแอร์ เซอร์วิส</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
                 </p>
             </div>
         </div>
-        <div className="flex flex-row justify-center items-center gap-10">
-            <div className="w-md">
+        <div className="w-full flex flex-col-reverse sm:flex-row justify-center items-center gap-10 px-0 sm:px-10">
+            <div className="w-full sm:w-md px-20 sm:px-0">
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">นายพลสันต์ เนตรสว่าง</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
@@ -97,29 +99,31 @@ const MainPage = () => {
         </div>
     </section>
     <Seperator />    
-    <section id="contact" className="bg-Primary w-full py-6 px-4 flex md:flex-row flex-col justify-center items-center md:gap-0 gap-6">
+    <section id="contact" className="bg-Primary w-full py-6 px-4 flex lg:flex-row flex-col justify-center items-center md:gap-0 gap-6">
         <div className="w-full flex flex-col justify-center items-center gap-6">
             <div className="flex justify-center items-center gap-6">
                 <StyledHeader title="Contact Us"/>
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">อุ่นใจแอร์ เซอร์วิส</h2>
             </div>
-            <button className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Darker-Primary-1 shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
-                <img src="/img/TestLogo.png" alt="Logo" className="w-20"/>
-                <div className="flex items-start justify-center flex-col ml-6 font-semibold">
-                    <span>เพิ่มเพื่อนด้วย Line ID</span>
-                    <span>@aunjaiair</span>
-                </div>
-            </button>
-            <button className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Darker-Primary-1 shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
-                <img src="/img/TestLogo.png" alt="Logo" className="w-20"/>
-                <div className="flex items-start justify-center flex-col ml-6 font-semibold">
-                    <span>โทรศัพท์</span>
-                    <span>095-583-4600</span>
-                </div>
-            </button>
-            <p className="text-Secondary text-lg w-full md:w-md">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis </p>
+            <div className="flex flex-col-reverse sm:flex-col justify-center items-center gap-6">
+                <button className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
+                    <img src="/img/icon-line.svg" alt="Logo" className="w-20"/>
+                    <div className="flex items-start justify-center flex-col ml-6 font-semibold">
+                        <span className="text-xl">เพิ่มเพื่อนด้วย Line ID</span>
+                        <span>@aunjaiair</span>
+                    </div>
+                </button>
+                <button className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
+                    <img src="/img/icon-phone.svg" alt="Logo" className="w-20 p-2"/>
+                    <div className="flex items-start justify-center flex-col ml-6 font-semibold">
+                        <span className="text-xl">โทรศัพท์</span>
+                        <span>095-583-4600</span>
+                    </div>
+                </button>
+                <p className="text-Secondary text-lg w-full md:w-md px-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis </p>
+            </div>
         </div>
-        <div className="flex flex-col justify-center items-center w-full bg-Secondary rounded-2xl px-5 py-5 md:mx-20 gap-7 border-4 border-Darker-Primary-1 shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
+        <div className="flex flex-col justify-center items-center w-full bg-Secondary rounded-2xl px-5 py-5 md:mx-20 gap-7 border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
             <StyledHeader title="Google Map"/>
             <div className="w-full max-w-4xl">
                 <iframe

@@ -1,170 +1,89 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+const slides = [
+  {
+    left: "/img/Logo.png",
+    right: "/img/previewimage_2.png",
+  },
+  {
+    left: "/img/previewimage_2.png",
+    right: "/img/previewimage_1.png",
+  },
+];
 
 const PreviewSlide = () => {
-  const imageLeftSrc = [
-    "/img/previewimage_1.png",
-    "/img/previewimage_2.png",
-  ];
+  const [index, setIndex] = useState(0);
+  const intervalRef = useRef(null);
 
-  const imageRightSrc = [
-    "/img/previewimage_2.png",
-    "/img/previewimage_1.png",
-  ];
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [direction, setDirection] = useState("next");
+  const total = slides.length;
 
-  const handleTransition = (newIndex, dir) => {
-    if (isTransitioning) return;
-    
-    setDirection(dir);
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setIsTransitioning(false)
-      setCurrentIndex(newIndex);
-    }, 500);
+  const goTo = (i) => {
+    setIndex((i + total) % total);
   };
 
-  // Auto Slide
+  const next = () => goTo(index + 1);
+  const prev = () => goTo(index - 1);
+
+  // Auto slide
   useEffect(() => {
-    if (isTransitioning) return;
-    const interval = setInterval(() => {
-      goToNext();
-    }, 15000);
-    return () => clearInterval(interval);
-  }, [currentIndex, isTransitioning]);
-
-  const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? imageLeftSrc.length - 1 : currentIndex - 1;
-    handleTransition(newIndex, "prev");
-  };
-
-  const goToNext = () => {
-    const newIndex = currentIndex === imageLeftSrc.length - 1 ? 0 : currentIndex + 1;
-    handleTransition(newIndex, "next");
-  };
-
-  const goToSlide = (index) => {
-    if (index === currentIndex) return;
-    const dir = index > currentIndex ? "next" : "prev";
-    handleTransition(index, dir);
-  };
-
-  // Helper function to get safe index
-  const getSafeIndex = (index) => {
-    if (index < 0) return imageLeftSrc.length - 1;
-    if (index >= imageLeftSrc.length) return 0;
-    return index;
-  };
-
-  const prevIndex = getSafeIndex(currentIndex - 1);
-  const nextIndex = getSafeIndex(currentIndex + 1);
+    intervalRef.current = setInterval(next, 15000);
+    return () => clearInterval(intervalRef.current);
+  }, [index]);
 
   return (
-    <div className="relative w-full mt-15">
-      {/* Slider Container */}
-      <div className="relative w-full h-80 overflow-hidden rounded-lg flex justify-center items-center gap-4 px-8">
+    <div className="relative w-full flex flex-col gap-4">
+      <div className="relative w-full h-100 overflow-hidden rounded-lg flex items-center px-4 sm:px-8 gap-4">
 
-        {/* Previous Button */}
+        {/* Prev */}
         <button
-          onClick={goToPrevious}
-          disabled={isTransitioning}
-          className="text-Primary text-4xl cursor-pointer bg-Secondary border-4 border-Secondary hover:bg-transparent hover:text-Secondary rounded-full px-2 py-0.5 transition flex justify-center items-center z-10 flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label="Previous slide"
+          onClick={prev}
+          className="z-10 text-4xl bg-Secondary border-4 border-Secondary rounded-full px-1.5 cursor-pointer text-Primary hover:bg-transparent hover:text-Secondary transition"
         >
           ⮜
         </button>
 
-        {/* Images Container */}
+        {/* Slider */}
         <div className="relative flex-1 h-full overflow-hidden">
-          {/* Previous Slide */}
-          <div 
-            className={`absolute inset-0 flex justify-between md:flex-row transition-transform flex-col gap-4 h-full duration-500 ease-in-out ${
-              isTransitioning && direction === "prev"
-                ? "translate-x-0" 
-                : "-translate-x-full "
-            }`}
+          <div
+            className="flex h-full transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${index * 100}%)` }}
           >
-            <img
-              src={imageLeftSrc[prevIndex]}
-              alt={`Slide ${prevIndex + 1} - Left`}
-              className="w-full md:w-1/2 h-full object-cover rounded"
-            />
-            <img
-              src={imageRightSrc[prevIndex]}
-              alt={`Slide ${prevIndex + 1} - Right`}
-              className="w-full md:w-1/2 h-full object-cover rounded"
-            />
-          </div>
-
-          {/* Current Slide */}
-          <div 
-            className={`absolute inset-0 flex justify-between md:flex-row flex-col transition-transform gap-4 h-full duration-500 ease-in-out ${
-              isTransitioning 
-                ? direction === "next" 
-                  ? "-translate-x-full" 
-                  : "translate-x-full"
-                : "translate-x-0 "
-            }`}
-          >
-            <img
-              src={imageLeftSrc[currentIndex]}
-              alt={`Slide ${currentIndex + 1} - Left`}
-              className="w-full md:w-1/2 h-full object-cover rounded"
-            />
-            <img
-              src={imageRightSrc[currentIndex]}
-              alt={`Slide ${currentIndex + 1} - Right`}
-              className="w-full md:w-1/2 h-full object-cover rounded"
-            />
-          </div>
-
-          {/* Next Slide */}
-          <div 
-            className={`absolute inset-0 flex justify-between md:flex-row transition-transform flex-col gap-4 h-full duration-500 ease-in-out ${
-              isTransitioning && direction === "next"
-                ? "translate-x-0 " 
-                : "translate-x-full"
-            }`}
-          >
-            <img
-              src={imageLeftSrc[nextIndex]}
-              alt={`Slide ${nextIndex + 1} - Left`}
-              className="w-full md:w-1/2 h-full object-cover rounded"
-            />
-            <img
-              src={imageRightSrc[nextIndex]}
-              alt={`Slide ${nextIndex + 1} - Right`}
-              className="w-full md:w-1/2 h-full object-cover rounded"
-            />
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-full h-full flex gap-4 md:flex-row flex-col"
+              >
+                <img
+                  src={slide.left}
+                  className="w-full md:w-1/2 h-full object-contain rounded"
+                />
+                <img
+                  src={slide.right}
+                  className="w-full md:w-1/2 h-full object-contain rounded"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Next Button */}
+        {/* Next */}
         <button
-          onClick={goToNext}
-          disabled={isTransitioning}
-          className="text-Primary text-4xl cursor-pointer bg-Secondary border-4 border-Secondary hover:bg-transparent hover:text-Secondary rounded-full px-2 py-0.5 transition flex justify-center items-center z-10 flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label="Next slide"
+          onClick={next}
+          className="z-10 text-4xl bg-Secondary border-4 border-Secondary rounded-full px-1.5 cursor-pointer text-Primary hover:bg-transparent hover:text-Secondary transition"
         >
           ⮞
         </button>
       </div>
 
-      {/* Dots Indicator */}
-      <div className="flex justify-center gap-2 mt-10">
-        {imageLeftSrc.map((_, index) => (
+      {/* Dots */}
+      <div className="flex justify-center gap-2">
+        {slides.map((_, i) => (
           <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            disabled={isTransitioning}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentIndex
-                ? "bg-Secondary w-8"
-                : "bg-White hover:w-4 cursor-pointer"
-            } disabled:cursor-not-allowed`}
-            aria-label={`Go to slide ${index + 1}`}
-            aria-current={index === currentIndex}
+            key={i}
+            onClick={() => goTo(i)}
+            className={`h-3 rounded-full transition-all ${
+              i === index ? "w-8 bg-Secondary" : "w-3 bg-White"
+            }`}
           />
         ))}
       </div>

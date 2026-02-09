@@ -45,10 +45,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
-      <div className="bg-Secondary flex items-center justify-between px-10 md:px-40">
+      <div className="bg-Secondary w-full flex items-center justify-between px-10 lg:px-40">
+        
         {/* Logo */}
         <a href="#home">
-          <img src="/img/TestLogo.png" alt="Logo" className="w-16 cursor-pointer py-2" />
+          <img src="/img/Logo.png" alt="Logo" className="w-16 cursor-pointer py-2" />
         </a>
 
         {/* Desktop Menu */}
@@ -74,9 +75,10 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {open && (
-          <ul className="absolute top-16 left-0 w-full bg-white text-black flex flex-col items-center gap-4 py-6 md:hidden shadow-md">
+          <ul className="absolute top-20 -z-10 left-0 w-full bg-Primary text-Black flex flex-col justify-center items-center py-1 md:hidden shadow-md">
             {menuItems.map((item) => (
-              <li key={item.name}>
+              <li key={item.name}
+              className="w-full flex justify-center items-center border-b-2 border-Darker-Primary-2 py-2 last:border-b-0">
                 <a
                   href={`#${item.path}`}
                   onClick={() => setOpen(false)}
