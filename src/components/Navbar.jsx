@@ -1,6 +1,10 @@
+import { useLocation, useNavigate } from "react-router-dom";
+import StyledHeader from "../components/StyledHeader";
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home"); // Track active ID
 
@@ -11,9 +15,27 @@ const Navbar = () => {
     { name: "ติดต่อเรา", path: "contact" },
   ];
 
+  const handleNavClick = (sectionId) => {
+    navigate("/");
+
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+
+    setOpen(false);
+  };
+
   useEffect(() => {
     const observers = [];
-    
+     if (location.pathname !== "/") {
+      setActiveSection("service");
+      return;
+    }
+    setActiveSection("home");
+
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         // If the section is visible in the viewport
@@ -37,7 +59,7 @@ const Navbar = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
 
   // Helper function for active styles
   const activeClass = "text-Primary";
@@ -56,14 +78,14 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-4">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <a
-                href={`#${item.path}`}
+              <button
+                onClick={() => handleNavClick(item.path)}
                 className={`font-bold text-xl cursor-pointer px-4 py-2 rounded-full transition inline-block ${
                   activeSection === item.path ? activeClass : inactiveClass
                 }`}
               >
                 {item.name}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
@@ -79,13 +101,12 @@ const Navbar = () => {
             {menuItems.map((item) => (
               <li key={item.name}
               className="w-full flex justify-center items-center border-b-2 border-Darker-Primary-2 py-2 last:border-b-0">
-                <a
-                  href={`#${item.path}`}
-                  onClick={() => setOpen(false)}
+                <button
+                  onClick={() => handleNavClick(item.path)}
                   className={`transition ${activeSection === item.path ? "text-Secondary font-bold" : ""}`}
                 >
                   {item.name}
-                </a>
+                </button>
               </li>
             ))}
           </ul>

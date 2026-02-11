@@ -2,13 +2,15 @@ import { useState } from "react";
 import PreviewSlide from "../components/PreviewSlide";
 import Seperator from "../components/Seperator";
 import StyledHeader from "../components/StyledHeader";
+import { useNavigate } from "react-router-dom";
 
 const MainPage = () => {
+    const navigate = useNavigate()
     const serviceItems = [
-        { name: "ล้างแอร์ธรรมดา", path: "/service_1" },
-        { name: "ล้างแอร์พรีเมี่ยม", path: "/service_2" },
-        { name: "ล้างแอร์แขวนคอย", path: "/service_3" },
-        { name: "ล้างแอร์ตัดล้างใหญ่", path: "/service_4" },
+        { name: "ล้างแอร์ธรรมดา", path: "service_1" },
+        { name: "ล้างแอร์พรีเมี่ยม", path: "service_2" },
+        { name: "ล้างแอร์แขวนคอย", path: "service_3" },
+        { name: "ล้างแอร์ตัดล้างใหญ่", path: "service_4" },
     ];
 
     const priceItems = [
@@ -18,6 +20,17 @@ const MainPage = () => {
         { name: "200BTU", service_1: 2000, service_2: 2000, service_3: 2000, service_4: 2000 },
     ];
 
+    const handleServiceClick = (sectionId) => {
+        navigate("/service");
+
+        setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
+        }, 100);
+    };
+    
   return (
     <>
     <section id="home" className="w-full h-full flex flex-col justify-between pt-30 pb-5 gap-2 items-center">
@@ -37,7 +50,7 @@ const MainPage = () => {
         <StyledHeader title="รูปแบบการล้าง"/>
        <div className="max-w-6xl gap-6 grid grid-cols-2 xl:grid-cols-4">
           {serviceItems.map((item) => (
-            <a  key={item.name} href={`#${item.path}`}>
+            <button  key={item.name} onClick={() => handleServiceClick(item.path)}>
                 <div className="hover:translate-y-4 transition flex flex-col justify-center items-center bg-Primary rounded-2xl w-40 md:w-60 border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)]">
                     <div className="py-4 px-4 flex flex-col items-center gap-4">
                         <img src="/img/img1.jpg" alt="Logo" className="w-full rounded-lg border-4 border-Darker-Secondary-1"/>
@@ -45,7 +58,7 @@ const MainPage = () => {
                     </div>
                     <span className="font-bold text-md text-Secondary bg-White w-full flex justify-center items-center rounded-b-xl">คลิกเพื่อดูรายละเอียด</span>
                 </div>
-            </a>
+            </button>
           ))}
         </div> 
         <StyledHeader title="การประเมินราคาเริ่มต้น"/>
