@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StyledHeader from '../components/StyledHeader';
+import StyledButton from '../components/StyledButton';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -204,9 +204,7 @@ const NotFound = () => {
           The page you're looking for seems to have vanished into the digital void. 
           Don't worry though – even the best explorers sometimes take a wrong turn!
         </p>
-        <button onClick={() => navigate("/")} className='hover:translate-y-1 cursor-pointer z-100'>
-          <StyledHeader title="กลับไปหน้าแรก"/>
-        </button>
+        <StyledButton title="กลับไปหน้าแรก" className='bg-Primary text-Secondary z-100' onClick={() => navigate("/")}/>
       </div>
     </>
   );

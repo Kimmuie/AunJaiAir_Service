@@ -2,14 +2,24 @@ import { useState } from "react";
 import PreviewSlide from "../components/PreviewSlide";
 import Seperator from "../components/Seperator";
 import StyledHeader from "../components/StyledHeader";
+import StyledButton from "../components/StyledButton";
 import { useNavigate } from "react-router-dom";
 import { useScrollAnimate } from "../components/UseScrollAnimate";
+import PriceTable from "../components/priceTable";
 
 const MainPage = () => {
     const { ref, isVisible } = useScrollAnimate();
+    const [ typeFilter, setTypeFilter] = useState("แอร์ผนัง");
     const [ copying, setCopying] = useState(false);
     const navigate = useNavigate()
     const [showAll, setShowAll] = useState(false);
+
+    const filterItems = [
+        "แอร์ผนัง",
+        "แอร์แขวน",
+        "แอร์เปลือยฝังฝ้า",
+        "แอร์ 4 ทิศทาง"
+    ];
 
     const imageItems = [
         { type: "image", src: "/img/S__20906051.jpg", },
@@ -25,18 +35,17 @@ const MainPage = () => {
 
     const serviceItems = [
         { name: "ธรรมดา", path: "service_1" },
-        { name: "พรีเมี่ยม", path: "service_2" },
+        { name: "พิเศษ", path: "service_2" },
         { name: "แขวนคอยล์", path: "service_3" },
         { name: "ตัดล้างใหญ่", path: "service_4" },
     ];
 
-    const priceItems = [
-        { name: "9000-15000 BTU", service_1: 2000, service_2: 2000, service_3: 2000, service_4: 2000 },
-        { name: "18000-24000 BTU", service_1: 2000, service_2: 2000, service_3: 2000, service_4: 2000 },
-        { name: "26000-36000 BTU", service_1: 2000, service_2: 2000, service_3: 2000, service_4: 2000 },
-        { name: "แอร์ 4 ทิศทางทุกขนาด", service_1: 2000, service_2: 2000, service_3: 2000, service_4: 2000 },
+    const priceItems_2 = [
+        { name: "แอร์แขวน 9000-15000 BTU", service_1: 500, service_2: 900, service_3: 1800, service_4: 2500, uninstall: 500, install: 3000 },
+        { name: "แอร์แขวน 18000-24000 BTU", service_1: 600, service_2: 1000, service_3: 1800, service_4: 2500, uninstall: 800, install: 3500 },
+        { name: "แอร์แขวน 26000-36000 BTU", service_1: 800, service_2: 1200, service_3: 1800, service_4: 2500, uninstall: 1000, install: 4500 },
+        { name: "แอร์ 4 ทิศทาง ทุกขนาด BTU", service_1: 1800, service_2: 1800, service_3: 1800, service_4: 2500, uninstall: 500, install: 3000 },
     ];
-
     const handleServiceClick = (sectionId) => {
         navigate("/service");
 
@@ -80,12 +89,13 @@ const MainPage = () => {
     <section id="service" className="bg-White w-full h-full flex flex-col justify-start items-center py-25 gap-6">
         <StyledHeader title="รูปแบบการล้าง"/>
        <div className="max-w-6xl gap-6 grid grid-cols-2 xl:grid-cols-4">
+        
           {serviceItems.map((item) => (
             <button  key={item.name} onClick={() => handleServiceClick(item.path)}>
-                <div className="hover:translate-y-4 transition flex flex-col justify-center items-center bg-Primary rounded-2xl w-40 md:w-60 border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)]">
+                <div className="cursor-pointer hover:translate-y-4 transition flex flex-col justify-center items-center bg-Primary rounded-2xl w-40 md:w-60 border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)]">
                     <div className="py-4 px-4 flex flex-col items-center gap-4">
                         <img src="/img/img1.jpg" alt="Logo" className="w-full rounded-lg border-4 border-Darker-Secondary-1"/>
-                        <div className="flex justify-center items-center flex-col sm:flex-row">
+                        <div className="flex justify-center items-center flex-col lg:flex-row">
                             <span className="font-bold text-Secondary text-xl">ล้างแอร์</span>
                             <span className="font-bold text-Secondary text-xl">{item.name}</span>
                         </div>
@@ -94,38 +104,22 @@ const MainPage = () => {
                 </div>
             </button>
           ))}
-        </div> 
-        <StyledHeader title="การประเมินราคาเริ่มต้น"/>
-        <div className="w-full overflow-x-auto px-3 flex justify-start pb-5 sm:pb-2 sm:justify-center items-center">
-            <table className="w-full sm:w-2xl xl:w-5xl bg-White rounded-2xl overflow-hidden border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)] ">
-                <thead>
-                <tr className="bg-Primary text-Secondary">
-                    <th className="py-4 px-6 border-b-4 border-Darker-Secondary-1 text-left">รุ่น/ขนาด (BTU)</th>
-                    {serviceItems.map((item) => (
-                        <>
-                        <th className="py-4 px-6 border-b-4 border-Darker-Secondary-1">{item.name}</th>
-                        </>
-                    ))}
-                </tr>
-                </thead>
-                <tbody>
-                {priceItems.map((item, index) => (
-                    <tr 
-                    key={index} 
-                    className="hover:bg-gray-50 transition-colors border-b-2 border-Darker-Secondary-1 last:border-b-0"
-                    >
-                    <td className="py-4 px-6 font-bold text-Darker-Secondary-2">{item.name}</td>
-                    <td className="py-4 px-6 text-center">{item.service_1.toLocaleString()}.-</td>
-                    <td className="py-4 px-6 text-center">{item.service_2.toLocaleString()}.-</td>
-                    <td className="py-4 px-6 text-center">{item.service_3.toLocaleString()}.-</td>
-                    <td className="py-4 px-6 text-center">{item.service_4.toLocaleString()}.-</td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
         </div>
+        <div className="flex flex-col xl:flex-row justify-center items-center gap-4">
+            <StyledHeader title="การประเมินราคาเริ่มต้น"/>
+            <div className="flex gap-2">
+            {filterItems.map((item) => (
+                <StyledButton title={item} onClick={() => setTypeFilter(item)} className={`${typeFilter == item ? "text-Primary bg-Secondary" : "bg-Primary text-Secondary"}`}/>
+            ))}
+            </div>
+        </div>
+        <PriceTable filter={typeFilter}/>
+        <p className="text-Secondary text-lg text-center w-full md:w-md px-2">
+            ค่าใช้จ่ายเพิ่มเติม คิดตามจริง แต่แจ้งลูกค้าก่อนปฏิบัติงาน <br />
+            *หมายเหตุ* รับประกันงานติดตั้ง 6 เดือน <br />
+        </p>
         <StyledHeader title="ตัวอย่างการทำงาน"/>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto px-2">
             {visibleItems.map((item) => (
             <div
                 key={item.id}
@@ -150,15 +144,7 @@ const MainPage = () => {
             ))}
         </div>
         {imageItems.length > 4 && (
-            <button
-            onClick={() => setShowAll((prev) => !prev)}
-            className="flex justify-center mx-auto active:translate-y-2 hover:translate-y-1 cursor-pointer"
-            >
-            <StyledHeader
-                title={showAll ? "Show Less" : "Show All"}
-                className="rounded-4xl"
-            />
-            </button>
+            <StyledButton className="bg-Primary text-Secondary" title={showAll ? "Show Less" : "Show All"} onClick={() => setShowAll((prev) => !prev)}/>
         )}
     </section>
     <Seperator />
@@ -174,7 +160,7 @@ const MainPage = () => {
         </div>
         <div className="w-full flex flex-col-reverse sm:flex-row justify-center items-center gap-10 px-0 sm:px-10">
             <div className="w-full sm:w-md px-20 sm:px-0">
-                <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">นายพลสันต์ เนตรสว่าง</h2>
+                <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">นายพลสันต์ </h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
                 </p>
