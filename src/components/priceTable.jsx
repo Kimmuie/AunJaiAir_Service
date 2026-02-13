@@ -86,7 +86,7 @@ const PriceTable = ({filter}) => {
                     .map((section, sectionIndex) => (
                 <div
                     key={sectionIndex}
-                    className="w-full overflow-x-auto px-3 flex justify-start sm:justify-center"
+                    className="w-full overflow-x-auto px-3 pb-2 flex justify-start sm:justify-center"
                 >
                     <table className="w-full sm:w-2xl xl:w-5xl bg-White rounded-2xl overflow-hidden border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)]">
                     <thead>

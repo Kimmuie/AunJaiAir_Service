@@ -23,10 +23,17 @@ const MainPage = () => {
 
     const imageItems = [
         { type: "image", src: "/img/S__20906051.jpg", },
-        { type: "image", src: "/img/S__20906051.jpg", },
-        { type: "image", src: "/img/S__20906051.jpg", },
+        { type: "video", src: "/img/792517886.018088.mp4", },
+        { type: "image", src: "/img/S__20906058.jpg", },
         { type: "video", src: "/img/792517896.804625.mp4", },
-        { type: "image", src: "/img/S__20906051.jpg", },
+        { type: "image", src: "/img/S__20906085.jpg", },
+        { type: "image", src: "/img/S__20914200.jpg", },
+        { type: "image", src: "/img/D95A8942.jpg", },
+        { type: "image", src: "/img/S__20914201.jpg", },
+        { type: "image", src: "/img/S__20914204.jpg", },
+        { type: "image", src: "/img/S__20906067.jpg", },
+        { type: "image", src: "/img/S__20906055.jpg", },
+        { type: "image", src: "/img/S__20906047.jpg", },
     ];
     
     const visibleItems = showAll
@@ -73,7 +80,7 @@ const MainPage = () => {
 
   return (
     <>
-    <section id="home" className="w-full h-full flex flex-col justify-between pt-30 pb-5 gap-2 items-center">
+    <section id="home" className="w-full h-full flex flex-col justify-between pt-30 pb-0 sm:pb-5 gap-2 items-center">
         <PreviewSlide />
         <div className="-z-10">
             <img src="/img/img1.jpg" className="absolute inset-0 w-full h-full object-cover opacity-60" />
@@ -184,6 +191,9 @@ const MainPage = () => {
                     </div>
                 </a>
                 <button onClick={() => handleCopyTel("0955834600")} className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
+                    <div className="absolute w-full">
+                        <img src="/img/icon-copy.svg" alt="Logo" className="w-20"/>
+                    </div>
                     <img src="/img/icon-phone.svg" alt="Logo" className="w-20 p-2"/>
                     <div className="flex items-start justify-center flex-col ml-6 font-semibold">
                         <span className="text-xl">โทรศัพท์</span>

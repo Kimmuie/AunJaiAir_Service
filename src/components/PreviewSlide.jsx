@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from "react";
 
 const slides = [
   {
-    left: "/img/Logo.png",
-    right: "/img/previewimage_2.png",
+    left: "/img/Poster1.png",
+    right: "/img/Poster2.png",
   },
   {
-    left: "/img/previewimage_2.png",
-    right: "/img/previewimage_1.png",
+    left: "/img/Poster3.png",
+    right: "/img/Poster4.png",
   },
 ];
 
@@ -32,7 +32,7 @@ const PreviewSlide = () => {
 
   return (
     <div className="relative w-full flex flex-col gap-4">
-      <div className="relative w-full h-100 overflow-hidden rounded-lg flex items-center px-4 sm:px-8 gap-4">
+      <div className="relative w-full h-full lg:h-100 overflow-hidden rounded-lg flex items-center px-4 sm:px-8 gap-4">
 
         {/* Prev */}
         <button
@@ -55,11 +55,11 @@ const PreviewSlide = () => {
               >
                 <img
                   src={slide.left}
-                  className="w-full md:w-1/2 h-full object-contain rounded"
+                  className="w-full md:w-1/2 h-full object-fill sm:object-contain rounded"
                 />
                 <img
                   src={slide.right}
-                  className="w-full md:w-1/2 h-full object-contain rounded"
+                  className="w-full md:w-1/2 h-full object-fill sm:object-contain rounded"
                 />
               </div>
             ))}
