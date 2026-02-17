@@ -21,9 +21,9 @@ The website allows customers to:
 - Review & rating system
 <br>
 <br>
-<br>  
 
 ### 🛠️ Tech Stack
+### 🖥️ Tech Stack
 <div>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=react,tailwind,vercel" />
