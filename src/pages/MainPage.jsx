@@ -75,7 +75,7 @@ const MainPage = () => {
         setCopying(true)
         setTimeout(() => {
             setCopying(false)
-        }, 200);
+        }, 450);
     };
 
   return (
@@ -191,9 +191,11 @@ const MainPage = () => {
                     </div>
                 </a>
                 <button onClick={() => handleCopyTel("0955834600")} className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
-                    <div className="absolute w-full">
-                        <img src="/img/icon-copy.svg" alt="Logo" className="w-20"/>
+                    {copying && (
+                    <div className=" absolute w-full">
+                        <img src="/img/icon-copy.svg" alt="Logo" className="w-8 animate-fadeOutUp"/>
                     </div>
+                    )}
                     <img src="/img/icon-phone.svg" alt="Logo" className="w-20 p-2"/>
                     <div className="flex items-start justify-center flex-col ml-6 font-semibold">
                         <span className="text-xl">โทรศัพท์</span>

@@ -39,6 +39,18 @@ html { scroll-behavior: smooth;}
       transform: translateY(0);
     }
   }
+
+    --animate-fadeOutUp: fadeOutUp 0.5s ease-in-out;
+  @keyframes fadeOutUp {
+    0% {
+      opacity: 1;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+  }
 }
 
 ::-webkit-scrollbar {
