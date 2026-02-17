@@ -9,7 +9,7 @@ The website allows customers to:
 - Learn basic information about air conditioners
 - Contact the service provider directly
 
-#### 🔗 Live Website: https://aunjaiair.vercel.app/
+### 🔗 Live Website: https://aunjaiair.vercel.app/
 
 ### 🖥️ Features
 - 📊 Clear pricing tables
@@ -22,14 +22,15 @@ The website allows customers to:
 <br>
 <br>
 <br>  
-### Tech Stack
+### 🛠️ Tech Stack
 <div>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=react,tailwind,vercel" />
   </a>
 </div>
 <br>  
-### Website Interface
+
+### 🖥️ Website Interface
 <div>
   <img src="./illustration/UI1_.png"  title="UI" height="210"/>
   <img src="./illustration/UI2_.png"  title="UI" height="210"/>
