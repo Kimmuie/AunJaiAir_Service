@@ -22,13 +22,13 @@ The website allows customers to:
 <br>
 <br>
 <br>  
+
 ### 🛠️ Tech Stack
 <div>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=react,tailwind,vercel" />
   </a>
 </div>
-<br>  
 
 ### 🖥️ Website Interface
 <div>
