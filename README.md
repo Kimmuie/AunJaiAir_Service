@@ -1,16 +1,44 @@
-# React + Vite
+# AunJaiAir Service
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### What is [AunJaiAir Service](https://aunjaiair.vercel.app/)?
+**AunJaiAir Service Website** is a business website for an air conditioner service provider.
+The website allows customers to:
+-View available air conditioner services
+-Check detailed pricing information
+-Learn basic information about air conditioners
+-Contact the service provider directly
 
-Currently, two official plugins are available:
+# 🔗 Live Website: https://aunjaiair.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🖥️ Features
+-📊 Clear pricing tables
+-📞 Direct contact options
+-🧾 Service details explanation
 
-## React Compiler
+### 📈 Future Improvements
+- Online booking system
+- Review & rating system
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+----------- Click here to view [AunJaiAir](https://aunjaiair.vercel.app/) ----------- 
+<br>
+<br>
+<br>  
+### Tech Stack
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg"  title="CSS"width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg" title="HTML5"width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/vercel/vercel-original.svg" title="JavaScript"width="40" height="40"/>&nbsp;
+</div>
+<br>  
+### Website Interface
+<div>
+  <img src="./illustration/UI1_.png"  title="UI" height="210"/>
+  <img src="./illustration/UI2_.png"  title="UI" height="210"/>
+  <img src="./illustration/UI3_.png"  title="UI" height="210"/>
+  <img src="./illustration/UI4_.png"  title="UI" height="210"/>
+  <img src="./illustration/UI5_.png"  title="UI" height="210"/>
+  <img src="./illustration/UI6_.png"  title="UI" height="210"/>
+</div>
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
