@@ -23,7 +23,6 @@ The website allows customers to:
 <br>
 
 ### 🛠️ Tech Stack
-### 🖥️ Tech Stack
 <div>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=react,tailwind,vercel" />
