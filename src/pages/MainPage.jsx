@@ -41,10 +41,10 @@ const MainPage = () => {
         : imageItems.slice(0, 4); 
 
     const serviceItems = [
-        { name: "ธรรมดา", path: "service_1" },
-        { name: "พิเศษ", path: "service_2" },
-        { name: "แขวนคอยล์", path: "service_3" },
-        { name: "ตัดล้างใหญ่", path: "service_4" },
+        { name: "ธรรมดา", path: "service_1", image: "/img/service_1.jpg" },
+        { name: "พิเศษ", path: "service_2", image: "/img/service_2.jpg" },
+        { name: "แขวนคอยล์", path: "service_3", image: "/img/service_3.jpg" },
+        { name: "ตัดล้างใหญ่", path: "service_4", image: "/img/service_4.jpg" },
     ];
 
     const priceItems_2 = [
@@ -101,7 +101,7 @@ const MainPage = () => {
             <button  key={item.name} onClick={() => handleServiceClick(item.path)}>
                 <div className="cursor-pointer hover:translate-y-4 transition flex flex-col justify-center items-center bg-Primary rounded-2xl w-40 md:w-60 border-4 border-White shadow-[6px_6px_0_0_theme(colors.Darker-Secondary-2)]">
                     <div className="py-4 px-4 flex flex-col items-center gap-4">
-                        <img src="/img/img1.jpg" alt="Logo" className="w-full rounded-lg border-4 border-Darker-Secondary-1"/>
+                        <img src={item.image} alt="Logo" className="w-full rounded-lg border-4 border-Darker-Secondary-1"/>
                         <div className="flex justify-center items-center flex-col lg:flex-row">
                             <span className="font-bold text-Secondary text-xl">ล้างแอร์</span>
                             <span className="font-bold text-Secondary text-xl">{item.name}</span>
@@ -161,15 +161,24 @@ const MainPage = () => {
             <div className="w-full sm:w-md px-20 sm:px-0">
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">อุ่นใจแอร์ เซอร์วิส</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
+                    ให้บริการด้านเครื่องปรับอากาศแบบครบวงจร 
+                    ทั้งล้าง, ซ่อม, ย้าย, และติดตั้ง โดยทีมช่างผู้มีประสบการณ์ 
+                    เรามุ่งเน้นการทำงานที่ได้มาตรฐาน สะอาด ปลอดภัย และตรงต่อเวลา 
+                    เพื่อให้ลูกค้าได้รับบริการที่คุ้มค่าและมั่นใจในคุณภาพทุกขั้นตอน
+                    ด้วยประสบการณ์ในการให้บริการทั้งบ้านพักอาศัย ร้านค้า และสำนักงาน 
+                    เราพร้อมดูแลเครื่องปรับอากาศของคุณให้ทำงานได้อย่างเต็มประสิทธิภาพ 
+                    เย็นเร็ว ประหยัดไฟ และใช้งานได้อย่างยาวนาน
                 </p>
             </div>
         </div>
         <div className="w-full flex flex-col-reverse sm:flex-row justify-center items-center gap-10 px-0 sm:px-10">
             <div className="w-full sm:w-md px-20 sm:px-0">
-                <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">นายพลสันต์ </h2>
+                <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">นายพลสันต์ เนตรสว่าง</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
+                    เจ้าของกิจการอุ่นใจแอร์ เซอร์วิส
+                    โดยมีประสบการณ์ด้านงานเครื่องปรับอากาศมายาวนาน 
+                    เชี่ยวชาญทั้งงานติดตั้ง งานซ่อม และการแก้ไขปัญหาเฉพาะทาง 
+                    ด้วยความตั้งใจที่จะให้บริการอย่างซื่อสัตย์และจริงใจต่อลูกค้า
                 </p>
             </div>
             <img src="/img/Dad.jpg" alt="Logo" className="w-80 rounded-full border-4 border-White shadow-[6px_6px_0_0_theme(colors.Primary)]"/>
@@ -183,11 +192,11 @@ const MainPage = () => {
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">อุ่นใจแอร์ เซอร์วิส</h2>
             </div>
             <div className="flex flex-col-reverse sm:flex-col justify-center items-center gap-6">
-                <a href="https://line.me/R/ti/p/airdd888" className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
+                <a href="https://line.me/ti/p/airdd888" target="_blank" className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
                     <img src="/img/icon-line.svg" alt="Logo" className="w-20"/>
                     <div className="flex items-start justify-center flex-col ml-6 font-semibold">
                         <span className="text-xl">เพิ่มเพื่อนด้วย Line ID</span>
-                        <span>@airdd888</span>
+                        <span>airdd888</span>
                     </div>
                 </a>
                 <button onClick={() => handleCopyTel("0955834600")} className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
