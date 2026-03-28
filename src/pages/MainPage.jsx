@@ -80,17 +80,17 @@ const MainPage = () => {
 
   return (
     <>
-    <section id="home" className="w-full h-full flex flex-col justify-between pb-0 sm:pb-5 gap-2 items-center">
+    <section id="home" className="relative w-full h-full flex flex-col justify-between pb-0 sm:pb-5 gap-2 items-center">
         {/* Gap Nav */}
         <div className="h-30" />
         <PreviewSlide />
-        <div className="-z-10">
-            <img src="/img/img1.jpg" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+        <div className="absolute inset-0 -z-10">
+            <img src="/img/img1.jpg" className="w-full h-full object-cover opacity-60" />
             <div className="absolute inset-0 bg-gradient-to-r from-Primary via-Primary/90 to-transparent" />
         </div>
         <a href="#service">
-            <button className="text-Secondary text-4xl cursor-pointer border-4 border-transparent hover:border-Secondary rounded-full px-2 py-1 transition flex justify-center items-center">
-                ⮟
+            <button className="text-Secondary text-4xl cursor-pointer border-4 border-transparent hover:border-Secondary rounded-full px-4 py-1 transition flex justify-center items-center">
+                ↓
             </button>
         </a>
     </section>
@@ -213,7 +213,7 @@ const MainPage = () => {
                         <span>095-583-4600</span>
                     </div>
                 </button>
-                <p className="text-Secondary sm:text-lg text-base w-full md:w-md px-2">
+                <p className="text-Secondary sm:text-lg text-sm xs:text-base w-full md:w-md px-2">
                     ดำเนินการล้างด้วยอุปกรณ์เฉพาะทางที่ได้มาตรฐาน <br />
                     ผ่านกระบวนการทำความสะอาดอย่างพิถีพิถันทุกขั้นตอน <br />
                     เพื่อประสิทธิภาพการใช้งานและอายุการใช้งานที่ยาวนาน

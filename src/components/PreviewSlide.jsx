@@ -37,9 +37,9 @@ const PreviewSlide = () => {
         {/* Prev */}
         <button
           onClick={prev}
-          className="z-10 text-4xl bg-Secondary border-4 border-Secondary rounded-full px-1.5 cursor-pointer text-Primary hover:bg-transparent hover:text-Secondary transition"
+          className="z-10 text-4xl bg-Secondary border-4 border-Secondary pb-1 px-2 rounded-full cursor-pointer text-Primary hover:bg-transparent hover:text-Secondary transition"
         >
-          ⮜
+          ←
         </button>
 
         {/* Slider */}
@@ -69,9 +69,9 @@ const PreviewSlide = () => {
         {/* Next */}
         <button
           onClick={next}
-          className="z-10 text-4xl bg-Secondary border-4 border-Secondary rounded-full px-1.5 cursor-pointer text-Primary hover:bg-transparent hover:text-Secondary transition"
+          className="z-10 text-4xl bg-Secondary border-4 border-Secondary rounded-full pb-1 px-2 cursor-pointer text-Primary hover:bg-transparent hover:text-Secondary transition"
         >
-          ⮞
+          →
         </button>
       </div>
 
