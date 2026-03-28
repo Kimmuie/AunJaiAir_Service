@@ -80,7 +80,9 @@ const MainPage = () => {
 
   return (
     <>
-    <section id="home" className="w-full h-full flex flex-col justify-between pt-30 pb-0 sm:pb-5 gap-2 items-center">
+    <section id="home" className="w-full h-full flex flex-col justify-between pb-0 sm:pb-5 gap-2 items-center">
+        {/* Gap Nav */}
+        <div className="h-30" />
         <PreviewSlide />
         <div className="-z-10">
             <img src="/img/img1.jpg" className="absolute inset-0 w-full h-full object-cover opacity-60" />
@@ -107,7 +109,7 @@ const MainPage = () => {
                             <span className="font-bold text-Secondary text-xl">{item.name}</span>
                         </div>
                     </div>
-                    <span className="font-bold text-md text-Secondary bg-White w-full flex justify-center items-center rounded-b-xl">คลิกเพื่อดูรายละเอียด</span>
+                    <span className="font-bold md:text-base text-sm text-Secondary bg-White w-full flex justify-center items-center rounded-b-xl">คลิกเพื่อดูรายละเอียด</span>
                 </div>
             </button>
           ))}
@@ -121,7 +123,7 @@ const MainPage = () => {
             </div>
         </div>
         <PriceTable filter={typeFilter}/>
-        <p className="text-Secondary text-lg text-center w-full md:w-md px-2">
+        <p className="text-Secondary sm:text-lg text-base text-center w-full md:w-md px-2">
             ค่าใช้จ่ายเพิ่มเติม คิดตามจริง แต่แจ้งลูกค้าก่อนปฏิบัติงาน <br />
             *หมายเหตุ* รับประกันงานติดตั้ง 6 เดือน <br />
         </p>
@@ -158,7 +160,7 @@ const MainPage = () => {
     <section id="about-us" className="bg-White w-full h-full flex flex-col justify-start items-center py-25 gap-4">
         <div className="w-full flex flex-col sm:flex-row justify-center items-center gap-10 px-0 sm:px-10">
             <img src="/img/img1.jpg" alt="Logo" className="w-xs sm:w-100 rounded-lg border-4 border-White shadow-[6px_6px_0_0_theme(colors.Primary)]"/>
-            <div className="w-full sm:w-md px-20 sm:px-0">
+            <div className="w-full sm:w-md px-5 sm:px-0">
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">อุ่นใจแอร์ เซอร์วิส</h2>
                 <p>
                     ให้บริการด้านเครื่องปรับอากาศแบบครบวงจร 
@@ -172,7 +174,7 @@ const MainPage = () => {
             </div>
         </div>
         <div className="w-full flex flex-col-reverse sm:flex-row justify-center items-center gap-10 px-0 sm:px-10">
-            <div className="w-full sm:w-md px-20 sm:px-0">
+            <div className="w-full sm:w-md px-5 sm:px-0">
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">นายพลสันต์ เนตรสว่าง</h2>
                 <p>
                     เจ้าของกิจการอุ่นใจแอร์ เซอร์วิส
@@ -185,13 +187,13 @@ const MainPage = () => {
         </div>
     </section>
     <Seperator />    
-    <section id="contact" className="bg-Primary w-full py-6 px-4 flex lg:flex-row flex-col justify-center items-center md:gap-0 gap-6">
+    <section id="contact" className="bg-Primary w-full py-6 px-4 flex lg:flex-row flex-col justify-center items-center lg:gap-0 gap-6">
         <div className="w-full flex flex-col justify-center items-center gap-6">
             <div className="flex justify-center items-center gap-6">
                 <StyledHeader title="Contact Us"/>
                 <h2 className="text-Secondary text-xl md:text-3xl font-extrabold">อุ่นใจแอร์ เซอร์วิส</h2>
             </div>
-            <div className="flex flex-col-reverse sm:flex-col justify-center items-center gap-6">
+            <div className="flex flex-col-reverse lg:flex-col justify-center items-center gap-6">
                 <a href="https://line.me/ti/p/airdd888" target="_blank" className="w-full md:w-md bg-Secondary hover:underline text-Primary hover:translate-x-4 px-7 py-2 text-xl md:text-3xl flex justify-start items-center cursor-pointer duration-200 ease-in-out transition-all rounded-4xl border-4 border-Primary shadow-[6px_6px_0_0_theme(colors.Darker-Primary-2)]">
                     <img src="/img/icon-line.svg" alt="Logo" className="w-20"/>
                     <div className="flex items-start justify-center flex-col ml-6 font-semibold">
@@ -211,7 +213,7 @@ const MainPage = () => {
                         <span>095-583-4600</span>
                     </div>
                 </button>
-                <p className="text-Secondary text-lg w-full md:w-md px-2">
+                <p className="text-Secondary sm:text-lg text-base w-full md:w-md px-2">
                     ดำเนินการล้างด้วยอุปกรณ์เฉพาะทางที่ได้มาตรฐาน <br />
                     ผ่านกระบวนการทำความสะอาดอย่างพิถีพิถันทุกขั้นตอน <br />
                     เพื่อประสิทธิภาพการใช้งานและอายุการใช้งานที่ยาวนาน
