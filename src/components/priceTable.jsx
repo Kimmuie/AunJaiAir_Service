@@ -23,9 +23,9 @@ const PriceTable = ({filter}) => {
                     "ธรรมดา", "พิเศษ", "แขวนคอยล์", "ตัดล้างใหญ่", "ถอดแอร์", "ติดตั้ง"
                 ],
                 rows: [
-                    { name: "แอร์แขวน 9000-15000 BTU", service_1: 900, service_2: 1300, service_3: 1800, service_4: 2500, uninstall: 800, install: 4000, },
-                    { name: "แอร์แขวน 18000-24000 BTU", service_1: 1200, service_2: 1600, service_3: 1800, service_4: 2500, uninstall: 1200, install: 4500, },
-                    { name: "แอร์แขวน 26000-36000 BTU", service_1: 1800, service_2: 2200, service_3: 1800, service_4: 2500, uninstall: 1500, install: 6000, }
+                    { name: "แอร์แขวน 9000-15000 BTU", service_1: 1000, service_2: "", service_3: "", service_4: "", uninstall: 800, install: 4000, },
+                    { name: "แอร์แขวน 18000-24000 BTU", service_1: 1200, service_2: "", service_3: "", service_4: "", uninstall: 1200, install: 4500, },
+                    { name: "แอร์แขวน 26000-36000 BTU", service_1: 1400, service_2: "", service_3: "", service_4: "", uninstall: 1500, install: 6000, }
                 ],
             },
             
@@ -36,9 +36,9 @@ const PriceTable = ({filter}) => {
                     "ธรรมดา", "พิเศษ", "แขวนคอยล์", "ตัดล้างใหญ่", "ถอดแอร์", "ติดตั้ง"
                 ],
                 rows: [
-                    { name: "แอร์เปลือยฝังฝ้า 9000-15000 BTU", service_1: 500, service_2: 900, service_3: 1800, service_4: 2500, uninstall: 500, install: 3000, },
-                    { name: "แอร์เปลือยฝังฝ้า 18000-24000 BTU", service_1: 500, service_2: 900, service_3: 1800, service_4: 2500, uninstall: 500, install: 3000, },
-                    { name: "แอร์เปลือยฝังฝ้า 26000-36000 BTU", service_1: 500, service_2: 900, service_3: 1800, service_4: 2500, uninstall: 500, install: 3000, }
+                    { name: "แอร์เปลือยฝังฝ้า 9000-15000 BTU", service_1: 1000, service_2: "", service_3: "", service_4: "", uninstall: 800, install: 4500, },
+                    { name: "แอร์เปลือยฝังฝ้า 18000-24000 BTU", service_1: 1200, service_2: "", service_3: "", service_4: "", uninstall: 1000, install: 5500, },
+                    { name: "แอร์เปลือยฝังฝ้า 26000-36000 BTU", service_1: 1400, service_2: "", service_3: "", service_4: "", uninstall: 1200, install: 6500, }
                 ],
             },
 
@@ -49,7 +49,7 @@ const PriceTable = ({filter}) => {
                     "ธรรมดา", "พิเศษ", "แขวนคอยล์", "ตัดล้างใหญ่", "ถอดแอร์", "ติดตั้ง"
                 ],
                 rows: [
-                    { name: "แอร์ 4 ทิศทาง ทุกขนาด BTU", service_1: 500, service_2: 900, service_3: 1800, service_4: 2500, uninstall: 500, install: 3000, },
+                    { name: "แอร์ 4 ทิศทาง ทุกขนาด BTU", service_1: 1800, service_2: "", service_3: "", service_4: "", uninstall: 1500, install: 7000, },
                 ],
             },
             {
